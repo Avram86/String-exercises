@@ -8,7 +8,14 @@ namespace String_exercises
         {
             //Console.WriteLine( $"No of occurences is {NumarOfOccurences("This test is a test", "test")}");
 
-            
+            Console.WriteLine(string.Format("{0,-15}{1,-5}{2,7}{3,7}{4,7}",
+                "Produs",
+                "UM",
+                "Pret",
+                "Cant",
+                "Total"));
+            PrintProductLine("Paine", "buc",4,1);
+            PrintProductLine("Cafea", "buc", 7, 2);
 
         }
 
@@ -187,6 +194,19 @@ namespace String_exercises
             Console.WriteLine(string.IsNullOrWhiteSpace("   "));
 
             //string.Empty better than ""
+        }
+
+        private static void PrintProductLine(string productName, string um, float price, float quantity)
+        {
+            float total = price * quantity;
+            //string line = productName + um + price + quantity;
+            string line = string.Format("{0,-15}{1,-5}{2,7:C}{3,7}{4,7:C}",
+                productName,
+                um,
+                price,
+                quantity,
+                total);
+            Console.WriteLine(line);
         }
     }
 }

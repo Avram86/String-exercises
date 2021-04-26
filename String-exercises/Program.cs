@@ -6,7 +6,10 @@ namespace String_exercises
     {
         static void Main(string[] args)
         {
-            Reverse("Index");
+            string original = "Hello";
+            string reversed=Reverse(original);
+            Console.WriteLine($"Original: {original}");
+            Console.WriteLine($"Reversed: {reversed}");
         }
 
         private static void CountVowels()
@@ -95,12 +98,15 @@ namespace String_exercises
                 reversed[i] = text[text.Length - 1 - i];
             }
 
-            foreach(var c in reversed)
-            {
-                Console.Write(c);
-            }
+            //foreach(var c in reversed)
+            //{
+            //    Console.Write(c);
+            //}
 
-            return reversed.ToString();
+            //return reversed.ToString();
+            return new string(reversed);
         }
+
+
     }
 }

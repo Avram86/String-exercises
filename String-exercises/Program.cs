@@ -6,7 +6,10 @@ namespace String_exercises
     {
         static void Main(string[] args)
         {
-           Console.WriteLine( $"No of occurences is {NumarOfOccurences("This test is a test", "test")}");
+            //Console.WriteLine( $"No of occurences is {NumarOfOccurences("This test is a test", "test")}");
+
+            
+
         }
 
         private static void CountVowels()
@@ -124,6 +127,15 @@ namespace String_exercises
 
         private static int NumarOfOccurences(string text, string substring)
         {
+            if (text is null)
+            {
+                return 0;
+            }
+            if (string.IsNullOrEmpty(substring))
+            {
+                return 0;
+            }
+
             int nrOfOccurences = 0;
 
             bool endOfText = false;
@@ -143,6 +155,38 @@ namespace String_exercises
                 }
             }
             return nrOfOccurences;
+        }
+
+        private static void Substring()
+        {
+            string text = "This is a test and another test";
+            string substring = text.Substring(5, 2);
+
+            Console.WriteLine(substring);
+        }
+
+        private static void StringJoin()
+        {
+            string text = string.Concat("This", " is ", "a longer string");
+            //="This"+" is "+"a longer string"
+            string text2 = string.Join(',', new string[] { "a", "b", "c" });
+            Console.Write(text2);
+            //output a,b,c
+        }
+
+        private static void IsNullOrWhiteSpace()
+        {
+            Console.WriteLine(string.IsNullOrEmpty(null));
+            Console.WriteLine(string.IsNullOrEmpty(""));
+            Console.WriteLine(string.IsNullOrEmpty("   "));
+
+            Console.WriteLine("---------------------------------------------------------");
+
+            Console.WriteLine(string.IsNullOrWhiteSpace(null));
+            Console.WriteLine(string.IsNullOrWhiteSpace(""));
+            Console.WriteLine(string.IsNullOrWhiteSpace("   "));
+
+            //string.Empty better than ""
         }
     }
 }

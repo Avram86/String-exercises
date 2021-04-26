@@ -6,13 +6,7 @@ namespace String_exercises
     {
         static void Main(string[] args)
         {
-            //string original = "Hello";
-            //string reversed=Reverse(original);
-            //Console.WriteLine($"Original: {original}");
-            //Console.WriteLine($"Reversed: {reversed}");
-
-            bool isPalindrome = IsPalindrome("Hello");
-            Console.WriteLine($"is Hello a palindrome: {isPalindrome}");
+           Console.WriteLine( $"No of occurences is {NumarOfOccurences("This test is a test", "test")}");
         }
 
         private static void CountVowels()
@@ -115,6 +109,40 @@ namespace String_exercises
             string reversed = Reverse(text);
             bool isPalindrome = string.Equals(text, reversed, StringComparison.OrdinalIgnoreCase);
             return isPalindrome;
+        }
+
+        private static void GetReverseString_And_CheckIPalindrome()
+        {
+            string original = "Hello";
+            string reversed = Reverse(original);
+            Console.WriteLine($"Original: {original}");
+            Console.WriteLine($"Reversed: {reversed}");
+
+            bool isPalindrome = IsPalindrome(original);
+            Console.WriteLine($"is {original} a palindrome: {isPalindrome}");
+        }
+
+        private static int NumarOfOccurences(string text, string substring)
+        {
+            int nrOfOccurences = 0;
+
+            bool endOfText = false;
+            int indexStart = 0;
+
+            while (!endOfText)
+            {
+                int foundAtIndex = text.IndexOf(substring, indexStart, StringComparison.OrdinalIgnoreCase);
+                if (text.IndexOf(substring,indexStart, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    nrOfOccurences++;
+                    indexStart = foundAtIndex+substring.Length;
+                }
+                else
+                {
+                    endOfText = true;
+                }
+            }
+            return nrOfOccurences;
         }
     }
 }

@@ -6,10 +6,13 @@ namespace String_exercises
     {
         static void Main(string[] args)
         {
-            string original = "Hello";
-            string reversed=Reverse(original);
-            Console.WriteLine($"Original: {original}");
-            Console.WriteLine($"Reversed: {reversed}");
+            //string original = "Hello";
+            //string reversed=Reverse(original);
+            //Console.WriteLine($"Original: {original}");
+            //Console.WriteLine($"Reversed: {reversed}");
+
+            bool isPalindrome = IsPalindrome("Hello");
+            Console.WriteLine($"is Hello a palindrome: {isPalindrome}");
         }
 
         private static void CountVowels()
@@ -107,6 +110,11 @@ namespace String_exercises
             return new string(reversed);
         }
 
-
+        private static bool IsPalindrome(string text)
+        {
+            string reversed = Reverse(text);
+            bool isPalindrome = string.Equals(text, reversed, StringComparison.OrdinalIgnoreCase);
+            return isPalindrome;
+        }
     }
 }

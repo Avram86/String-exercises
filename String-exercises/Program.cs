@@ -200,12 +200,19 @@ namespace String_exercises
         {
             float total = price * quantity;
             //string line = productName + um + price + quantity;
-            string line = string.Format("{0,-15}{1,-5}{2,7:C}{3,7}{4,7:C}",
-                productName,
-                um,
-                price,
-                quantity,
-                total);
+            //string line = string.Format("{0,-15}{1,-5}{2,7:C}{3,7}{4,7:C}",
+            //    productName,
+            //    um,
+            //    price,
+            //    quantity,
+            //    total);
+
+
+
+            //string interpolation
+            //{variabila, alinierea, :formatare specifica ex moneda, data}
+            string line = $"{productName,-15}{um,-5}{price,7:C}{quantity,7}{total,7:C}";
+              
             Console.WriteLine(line);
         }
     }
